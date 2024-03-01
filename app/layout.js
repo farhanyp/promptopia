@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import Navbar from '@/components/Nav'
 import Provider from "@/components/Provider";
-import { useSession } from "next-auth/react";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Promptopiia",
@@ -18,7 +18,9 @@ export default function RootLayout({ children }) {
             </div>
             <main className="app">
               <Navbar />
-              {children}
+              <Suspense>
+                {children}
+              </Suspense>
             </main>
           </Provider>
       </body>
